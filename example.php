@@ -7,7 +7,7 @@ $cx->getAuthorizationUrl('https://yoursite.com');
 // https://www.cx.com/mycx/oauth/authorize?client_id=your_client_id&redirect_uri=https%3A%2F%2Fyoursite.com
 
 // obtaining an access token
-$cx->getAccessToken('qjdgpg2arjdmgnt2fdcchn85', 'https://google.com')
+$cx->getAccessToken('your_code', 'https://google.com')
 //  array(3) {
 //    ["token_type"]=>
 //    string(6) "bearer"
