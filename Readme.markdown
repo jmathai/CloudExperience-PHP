@@ -46,6 +46,8 @@ You'll want to save the `access_token` so you can access protected APIs for this
 
 Once you've been granted access to the user's account and set the access token you can make a call to get the user's information.
 
+You can use the `get`, `post` and `upload` methods.
+
     // make a call to /users/self
     $cx->get('/users/self');
         //  array(1) {
