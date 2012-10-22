@@ -21,6 +21,9 @@ class CloudExperience
 
   public function getAuthorizationUrl($callback)
   {
+    if(preg_match('/^https/', $callback) === 0)
+      throw new CloudExperience_InvalidRedirectUri_Exception('Your callback must be https');
+
     return sprintf('https://www.cx.com/mycx/oauth/authorize?client_id=%s&redirect_uri=%s', $this->clientId, urlencode($callback));
   }
 
@@ -46,7 +49,11 @@ class CloudExperience
 
   public function setAccessToken($accessToken)
   {
+    if(empty($accessToken))
+      return false;
+
     $this->accessToken = $accessToken;
+    return true;
   }
 
   public function upload($endpoint, $params = array())
@@ -84,3 +91,6 @@ class CloudExperience
       return sprintf('%s/%s%s?access_token=%s&client_id=%s', $this->baseUrl, $this->version, $endpoint, $this->accessToken, $this->clientId);
   }
 }
+
+class CloudExperience_Exception extends Exception {}
+class CloudExperience_InvalidRedirectUri_Exception extends CloudExperience_Exception {}
