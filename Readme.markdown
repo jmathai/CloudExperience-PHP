@@ -24,7 +24,7 @@ If the user hasn't yet granted access to your app you'll need to obtain an acces
 Redirect the user to the *Authorization URL* and once the user approves your app they'll be redirected to the callback URL you specified. The request will include a *GET* parameter named `authorization_code` which we'll pass back to CloudExperience in exchange for an access token.
 
     // obtaining an access token
-    $cx->getAccessToken('qjdgpg2arjdmgnt2fdcchn85', 'https://google.com')
+    $cx->getAccessToken('your_code', 'https://google.com')
         //  array(3) {
         //    ["token_type"]=>
         //    string(6) "bearer"
